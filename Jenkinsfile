@@ -8,7 +8,7 @@ pipeline{
                 }
 		stage('---set hash as version---'){
                         steps{
-                               sh "sed -i \"s/{{TAG}}/\${tag}/g\" ./\${JOB_NAME}/deployment.yaml"
+                               sh "sed -i \"s/{{TAG}}/\${tag}/g\" ./deployment.yaml"
                         }
                 }
 		stage('---build---'){
@@ -23,7 +23,7 @@ pipeline{
 		}
 		stage('---run in kubes---'){
 			steps{
-				sh "kubectl apply -f ./\${JOB_NAME}/deployment.yaml -f ./\${JOB_NAME}/service.yaml"
+				sh "kubectl apply -f ./deployment.yaml -f ./service.yaml"
 			}
 		}
 	}
