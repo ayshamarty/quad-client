@@ -13,7 +13,7 @@ pipeline{
                 }
 		stage('---build---'){
                         steps{
-                               sh "sudo docker build . -t ayshamarty/\${JOB_NAME}:\${tag}"
+                               sh "sudo docker build . -t ayshamarty/\${JOB_NAME}:${tag}"
                         }
                 }
 		stage('---push---'){
