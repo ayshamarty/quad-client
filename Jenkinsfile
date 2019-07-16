@@ -33,7 +33,7 @@ pipeline{
 			}
 		}
 	}
-}
+} 
 
 ##!/bin/bash
 ## get the latesxt git commit hash
