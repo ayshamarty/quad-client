@@ -14,7 +14,7 @@ pipeline{
                 }
 		stage('---set hash as version---'){
                         steps{
-                               sh "sed -i \"s/{{TAG}}/\$tag/g\" ./deployment.yaml"
+                               sh 'sed -i \"s/{{TAG}}/\$tag/g\" ./deployment.yaml'
 			}
                 }
 		stage('---build---'){
