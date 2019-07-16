@@ -1,5 +1,9 @@
 pipeline{
 	agent any
+	environment { 
+        CC = 'clang'
+		sh "tag=\$(git rev-parse HEAD)"
+        }
         stages{
 		stage('---get commit hash---'){
                         steps{
@@ -9,7 +13,6 @@ pipeline{
 		stage('---set hash as version---'){
                         steps{
                                sh "sed -i \"s/{{TAG}}/\${tag}/g\" ./deployment.yaml"
-				sh "echo \${env.tag}"
 			}
                 }
 		stage('---build---'){
