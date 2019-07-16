@@ -1,8 +1,10 @@
 pipeline{
 	agent any
 	environment { 
-        CC = 'clang'
-		sh "tag=\$(git rev-parse HEAD)"
+		CC = """${sh(
+			returnStdout: true,
+			script: 'tag=\$(git rev-parse HEAD)'
+		    )}""" 
         }
         stages{
 		stage('---get commit hash---'){
