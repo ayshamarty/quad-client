@@ -3,7 +3,7 @@ pipeline{
         stages{
 		stage('---get commit hash---'){
                         steps{
-                               sh "env.tag=\$(git rev-parse HEAD)"
+                               sh "tag=\$(git rev-parse HEAD)"
                         }
                 }
 		stage('---set hash as version---'){
