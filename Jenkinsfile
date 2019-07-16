@@ -9,8 +9,8 @@ pipeline{
 		stage('---set hash as version---'){
                         steps{
                                sh "sed -i \"s/{{TAG}}/\${tag}/g\" ./deployment.yaml"
-				sh "echo \$tag\"
-                        }
+				sh "echo \{$tag}"
+			}
                 }
 		stage('---build---'){
                         steps{
