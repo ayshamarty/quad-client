@@ -1,9 +1,9 @@
 pipeline{
 	agent any
 	environment { 
-		CC = """${sh(
+		tag = """${sh(
 			returnStdout: true,
-			script: 'tag=\$(git rev-parse HEAD)'
+			script: 'echo \$(git rev-parse HEAD)'
 		    )}""" 
         }
         stages{
