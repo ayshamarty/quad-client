@@ -3,13 +3,13 @@ pipeline{
         stages{
 		stage('---get commit hash---'){
                         steps{
-                               sh "tag=\$(git rev-parse HEAD)"
+                               sh "env.tag=\$(git rev-parse HEAD)"
                         }
                 }
 		stage('---set hash as version---'){
                         steps{
                                sh "sed -i \"s/{{TAG}}/\${tag}/g\" ./deployment.yaml"
-				sh "echo \{$tag}"
+				sh "echo \${env.tag}"
 			}
                 }
 		stage('---build---'){
