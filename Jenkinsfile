@@ -1,9 +1,15 @@
 pipeline{
 	agent any
+	environment{
+		tag = """${sh(
+			returnStdout: true,
+			script: 'echo "\$(git rev-parse HEAD)"'
+		    )}"""
+	}
         stages{
 		stage('---get commit hash---'){
                         steps{
-                               sh "tag=\$(git rev-parse HEAD)"
+                               sh "tag1=\$(git rev-parse HEAD)"
                         }
                 }
 		stage('---set hash as version---'){
