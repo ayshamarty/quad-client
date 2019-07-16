@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: client
-        image: ayshamarty/client:v1
+        image: ayshamarty/client:{{TAG}}
         ports:
         - containerPort: 3000
 
